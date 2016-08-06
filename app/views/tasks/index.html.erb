@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>タスク管理アプリ</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>タイトル</th>
+      <th>内容</th>
+      <th>ステータス</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tasks.each do |task| %>
+      <tr>
+        <td><%= task.title %></td>
+        <td><%= task.content %></td>
+        <td><%= task.status %></td>
+        <td><%= link_to '見る', task %></td>
+        <td><%= link_to '編集', edit_task_path(task) %></td>
+        <% if task.status == 2 %>
+        <td><%= link_to '削除', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to '新規作成', new_task_path %>
