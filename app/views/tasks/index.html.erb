@@ -21,7 +21,7 @@
         <td><%= link_to '見る', task %></td>
         <td><%= link_to '編集', edit_task_path(task) %></td>
         <% if task.status == 2 %>
-        <td><%= link_to '削除', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to '削除', task, method: :delete, data: { confirm: '本当に削除しますか?' } %></td>
         <% end %>
       </tr>
     <% end %>
